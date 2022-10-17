@@ -42,44 +42,13 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class FileService {
 
+    //todo 수정
     @Value("${upload.path}")
     String uploadPath;
 
     private final FileRepository fileRepository;
 
     private final FeedRepository feedRepository;
-
-//    @Transactional
-//    public void uploadFile(Long feedId, MultipartHttpServletRequest request) throws IOException {
-//
-//        MultipartFile file = request.getFile("file");
-//
-//        File fileDir = new File(uploadPath);
-//
-//        if (!fileDir.exists()) {
-//            fileDir.mkdir();
-//        }
-//
-//        String fileName = RandomStringUtils.randomAlphabetic(32);
-//
-//        long time = System.currentTimeMillis();
-//
-//        //확장자 명
-//        String fileExtensions = FilenameUtils.getExtension(file.getOriginalFilename());
-//
-//        //저장 파일명 생성(중복 최소화)
-//        String saveFileName = String.format("%s_%s", time, fileName + "." + fileExtensions);
-//
-//        File saveFile = new File(uploadPath, saveFileName);
-//        file.transferTo(saveFile);
-//
-//        if (saveFile.exists()) {
-//            log.info(saveFileName + " 파일 저장");
-//        }
-//
-//        fileRepository.save(new FileDto.fileDto().form(feedId, saveFileName, uploadPath));
-//
-//    }
 
     @Transactional
     public void deleteFile(Long feedId) {
@@ -183,3 +152,4 @@ public class FileService {
 
     }
 }
+
